@@ -1,16 +1,21 @@
+'use client'
+import { useContext } from "react";
 import { Heros } from "./Heros";
 import { AccountId, Client, PrivateKey } from "@hashgraph/sdk";
+import { GlobalAppContext } from "@/contexts/GlobalAppContext";
 
 export default function Home() {
-  if (!process.env.MY_ACCOUNT_ID || !process.env.MY_PRIVATE_KEY) {
+  const { metamaskAccountAddress } = useContext(GlobalAppContext);
+
+  if (!process.env.NEXT_PUBLIC_MY_ACCOUNT_ID || !process.env.NEXT_PUBLIC_MY_PRIVATE_KEY) {
     throw new Error(
       "Environment variables MY_ACCOUNT_ID and MY_PRIVATE_KEY must be present"
     );
   }
 
   // create your client
-  const myAccountId = AccountId.fromString(process.env.MY_ACCOUNT_ID);
-  const myPrivateKey = PrivateKey.fromString(process.env.MY_PRIVATE_KEY);
+  const myAccountId = AccountId.fromString(process.env.NEXT_PUBLIC_MY_ACCOUNT_ID);
+  const myPrivateKey = PrivateKey.fromString(process.env.NEXT_PUBLIC_MY_PRIVATE_KEY);
 
   const client = Client.forTestnet();
   client.setOperator(myAccountId, myPrivateKey);
