@@ -31,17 +31,17 @@ export default function Home() {
       <section className="bg-gray-900 text-white">
         <div className="container mx-auto flex flex-col items-center justify-center h-screen">
           <h1 className="text-5xl font-bold mb-4">GiveAway Page</h1>
-          <p className="text-xl font-light">get a Treat</p>
-        </div>
-        <button
+          <button
           type="button"
-          className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+          className="py-3 my-4 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-xl border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
           onClick={() => {
             sendHbar(client, myAccountId, AccountId.fromEvmAddress(0, 0, metamaskAccountAddress), 7, myPrivateKey)
           }}
         >
-          Solid
+          Get your HBAR
         </button>
+        </div>
+        
       </section>
     </main>
   );
