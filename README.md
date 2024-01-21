@@ -11,7 +11,7 @@ hackp.ac/starknet (deploy smart contracts)
 
 Set up your development environment: Install the necessary software and tools to develop a blockchain app with Hedera. You can follow the instructions provided in the Hedera documentation.
 
-Create a smart contract: Write a smart contract in Solidity that defines the rules of the game. You can use the Hedera SDK for Solidity to create the smart contract. The smart contract should include the logic for generating a random number between 0 and 5, and for determining whether the user has won or lost the bet.
+Create a smart contract: Write a smart contract in Solidity that defines the rules of the game. You can use the Hedera SDK for Solidity to create the smart contract. The smart contract should include the logic for generating a random number between 0 and 5, and for determining whether the user has won or lost.
 
 Deploy the smart contract to the Hedera testnet: Use the Hedera CLI to deploy the smart contract to the Hedera testnet. You can follow the instructions provided in the Hedera documentation.
 
@@ -19,7 +19,7 @@ Create a web application with Next.js: Use Next.js to create a web application t
 
 Create a wheel component: Create a wheel component in React that displays the numbers from 0 to 5. You can use the React Simple Wheel library to create the wheel component.
 
-Create a betting form: Create a form in React that allows users to place a bet on a number in the wheel. The form should include a field for the user to enter the amount of HBAR they want to bet.
+Create a betting form: Create a form in React that allows users to input a number in the wheel.
 
 Connect the web application to the smart contract: Use the Hedera JavaScript SDK to connect the web application to the smart contract. The web application should be able to read the state of the smart contract and send transactions to the smart contract.
 
