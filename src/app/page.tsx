@@ -1,4 +1,4 @@
-import { Hero } from "./Heros/page";
+import { Heros } from "./Heros/page";
 import { AccountId, Client, PrivateKey } from "@hashgraph/sdk";
 
 
@@ -15,7 +15,7 @@ export default function Home() {
   client.setOperator(myAccountId, myPrivateKey);
   return (
   <main className="">
-    <Hero/>
+    <Heros/>
     </main>);
 }
 
