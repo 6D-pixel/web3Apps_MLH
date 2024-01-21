@@ -1,6 +1,6 @@
 import { AccountId, Client, PrivateKey, TransactionReceiptQuery, TransferTransaction } from "@hashgraph/sdk"
 
-export const sendHbar = async (client:Client, fromAddress: AccountId | string, toAddress: AccountId | string, amount: number, operatorPrivateKey: PrivateKey) => {
+export const sendHbar = async (client, fromAddress, toAddress, amount, operatorPrivateKey) => {
   const transferHbarTransaction = new TransferTransaction()
     .addHbarTransfer(fromAddress, -amount)
     .addHbarTransfer(toAddress, amount)
@@ -15,13 +15,5 @@ export const sendHbar = async (client:Client, fromAddress: AccountId | string, t
     .setIncludeChildren(true)
     .execute(client);
 
-  const childReceipt = transactionReceipt.children[0];
-
-  if(!childReceipt || childReceipt.accountId === null) {
-    console.warn(`No account id was found in child receipt. Child Receipt: ${JSON.stringify(childReceipt, null, 4)}`);
-    return;
-  }
-
-   const newAccountId = childReceipt.accountId.toString();
-   console.log(`Account ID of the newly created account: ${newAccountId}`);
+   console.log(`Transaction Status: ${transactionReceipt.status}`);
 }

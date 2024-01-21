@@ -1,14 +1,14 @@
 'use client'
-import { createContext, ReactNode, useState } from "react";
+import { createContext, useState } from "react";
 
-const defaultValue:any = {
+const defaultValue = {
   metamaskAccountAddress: '',
-  setMetamaskAccountAddress: (newValue: string) => { },
+  setMetamaskAccountAddress: (newValue) => { },
 }
 
 export const GlobalAppContext = createContext(defaultValue)
 
-export const GlobalAppContextProvider = (props: { children: ReactNode | undefined }) => {
+export const GlobalAppContextProvider = (props) => {
   const [metamaskAccountAddress, setMetamaskAccountAddress] = useState('')
 
   return (
