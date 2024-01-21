@@ -1,17 +1,18 @@
 "use client";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { GlobalAppContext } from "@/contexts/GlobalAppContext";
 import { connectToMetamask } from "@/lib/metamaskServices";
 
 export const Navbar = () => {
   const { metamaskAccountAddress, setMetamaskAccountAddress } =
     useContext(GlobalAppContext);
-
+  const [address,setAddress] = useState('')
   const retrieveWalletAddress = async () => {
     const addresses = await connectToMetamask();
     if (addresses) {
       // grab the first wallet address
       setMetamaskAccountAddress(addresses[0]);
+      setAddress(addresses[0]);
       console.log(addresses[0]);
     }
   };
@@ -31,9 +32,9 @@ export const Navbar = () => {
             className="text-black bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-700 dark:hover:bg-blue-800 dark:focus:ring-blue-800"
             onClick={retrieveWalletAddress}
           >
-            {metamaskAccountAddress === ""
+            {address === ""
               ? "Connect to MetaMask"
-              : `Connected to: ${metamaskAccountAddress.substring(0, 8)}...`}
+              : `Connected to: ${address.substring(0, 8)}...`}
           </button>
         </div>
       </div>
