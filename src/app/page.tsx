@@ -1,10 +1,11 @@
-import { Heros } from "./Heros/page";
+import { Heros } from "./Heros";
 import { AccountId, Client, PrivateKey } from "@hashgraph/sdk";
-
 
 export default function Home() {
   if (!process.env.MY_ACCOUNT_ID || !process.env.MY_PRIVATE_KEY) {
-    throw new Error("Environment variables MY_ACCOUNT_ID and MY_PRIVATE_KEY must be present");
+    throw new Error(
+      "Environment variables MY_ACCOUNT_ID and MY_PRIVATE_KEY must be present"
+    );
   }
 
   // create your client
@@ -14,8 +15,8 @@ export default function Home() {
   const client = Client.forTestnet();
   client.setOperator(myAccountId, myPrivateKey);
   return (
-  <main className="">
-    <Heros/>
-    </main>);
+    <main className="">
+      <Heros />
+    </main>
+  );
 }
-
